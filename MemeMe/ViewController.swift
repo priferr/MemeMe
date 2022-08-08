@@ -9,8 +9,6 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate {
-
-    let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var imagePickerView: UIImageView!
     
@@ -24,12 +22,21 @@ UINavigationControllerDelegate {
         super.viewWillAppear(animated)
     }
     
-    @IBAction func pickAnImage(_ sender: Any) {
+    //MARK: Pick An Image
+    
+    func pickAnImage(source: UIImagePickerController.SourceType) {
+        let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         present(imagePicker, animated: true, completion: nil)
     }
     
+    @IBAction func photoButton(_ sender: Any) {
+        pickAnImage(source: .photoLibrary)
+    }
     
+    @IBAction func cameraButton(_ sender: Any) {
+        pickAnImage(source: .camera)
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let chosenImage = info[.originalImage] as? UIImage {
@@ -39,4 +46,4 @@ UINavigationControllerDelegate {
         }
     }
 }
-
+    
