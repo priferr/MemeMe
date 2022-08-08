@@ -16,30 +16,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S9l-Y6-E1H">
-                                <rect key="frame" x="87" y="384" width="240" height="123"/>
-                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9O7-PD-Wq8">
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
-                                    <barButtonItem title="Photo" image="photo" catalog="system" id="FC4-af-HKA">
+                                    <barButtonItem title="Photo" image="photo" catalog="system" width="256" id="FC4-af-HKA">
                                         <connections>
                                             <action selector="pickAnImage:" destination="BYZ-38-t0r" id="oaS-os-HSx"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Camera" image="camera.fill" catalog="system" id="nmw-fi-ZsD"/>
                                 </items>
                             </toolbar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S9l-Y6-E1H">
+                                <rect key="frame" x="32" y="273" width="350" height="350"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9O7-PD-Wq8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="BcA-XV-z4G"/>
                             <constraint firstItem="9O7-PD-Wq8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dv0-PA-Th6"/>
-                            <constraint firstItem="S9l-Y6-E1H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="LdJ-1m-atW"/>
+                            <constraint firstItem="S9l-Y6-E1H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="LdJ-1m-atW"/>
                             <constraint firstItem="9O7-PD-Wq8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UsF-Nf-UCL"/>
-                            <constraint firstItem="S9l-Y6-E1H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="340" id="nMF-SQ-4lu"/>
-                            <constraint firstItem="9O7-PD-Wq8" firstAttribute="top" secondItem="S9l-Y6-E1H" secondAttribute="bottom" constant="306" id="rny-eW-EBZ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S9l-Y6-E1H" secondAttribute="trailing" constant="87" id="ziM-dN-dJ3"/>
+                            <constraint firstItem="S9l-Y6-E1H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="229" id="nMF-SQ-4lu"/>
+                            <constraint firstItem="9O7-PD-Wq8" firstAttribute="top" secondItem="S9l-Y6-E1H" secondAttribute="bottom" constant="190" id="rny-eW-EBZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S9l-Y6-E1H" secondAttribute="trailing" constant="32" id="ziM-dN-dJ3"/>
                         </constraints>
                     </view>
                     <connections>
@@ -48,10 +49,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3" y="84"/>
+            <point key="canvasLocation" x="-4.3478260869565224" y="83.705357142857139"/>
         </scene>
     </scenes>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="photo" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
