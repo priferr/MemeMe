@@ -34,6 +34,15 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         //bottomTextField.defaultTextAttributes = memeTextAttributes
     }
     
+    //let memeTextAttributes: [NSAttributedString.Key: Any] = [
+    //    NSAttributedString.Key.strokeColor: /* TODO: fill in //appropriate UIColor */,
+     //   NSAttributedString.Key.foregroundColor: /* TODO: fill in //appropriate UIColor */,
+      //  NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+     //   NSAttributedString.Key.strokeWidth:  /* TODO: fill in //appropriate Float */
+  //  ]
+    
+    // MARK: Clear & Edit Text Fields
+    
     @IBAction func topTextFieldClears(_ sender: UITextField) {
         topTextField.text = ""
     }
@@ -42,20 +51,19 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         bottomTextField.text = ""
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
-    //let memeTextAttributes: [NSAttributedString.Key: Any] = [
-    //    NSAttributedString.Key.strokeColor: /* TODO: fill in //appropriate UIColor */,
-     //   NSAttributedString.Key.foregroundColor: /* TODO: fill in //appropriate UIColor */,
-      //  NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-     //   NSAttributedString.Key.strokeWidth:  /* TODO: fill in //appropriate Float */
-  //  ]
+    
+    
+    //MARK: Pick An Image
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
-    
-    //MARK: Pick An Image
 
     @IBAction func PickImagePhoto(_ sender: Any) {
         let imagePicker = UIImagePickerController()
@@ -71,7 +79,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    //MARK: Return Chosen Image
+    //MARK: Show Chosen Image
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let chosenImage = info[.originalImage] as? UIImage {
                 imagePickerView.image = chosenImage
