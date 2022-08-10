@@ -26,43 +26,27 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         topTextField.text = "TOP"
         topTextField.textAlignment = .center
         topTextField.delegate = self
-       // topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.defaultTextAttributes = memeTextAttributes
         
         bottomTextField.text = "BOTTOM"
         bottomTextField.textAlignment = .center
         bottomTextField.delegate = self
-        //bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
     }
     
-    //let memeTextAttributes: [NSAttributedString.Key: Any] = [
-    //    NSAttributedString.Key.strokeColor: /* TODO: fill in //appropriate UIColor */,
-     //   NSAttributedString.Key.foregroundColor: /* TODO: fill in //appropriate UIColor */,
-      //  NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-     //   NSAttributedString.Key.strokeWidth:  /* TODO: fill in //appropriate Float */
-  //  ]
-    
-    // MARK: Clear & Edit Text Fields
-    
-    @IBAction func topTextFieldClears(_ sender: UITextField) {
-        topTextField.text = ""
-    }
-    
-    @IBAction func bottomTextFieldClears(_ sender: UITextField) {
-        bottomTextField.text = ""
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    
-    
+    let memeTextAttributes: [NSAttributedString.Key: Any] = [
+        NSAttributedString.Key.strokeColor: UIColor.black,
+        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSAttributedString.Key.strokeWidth: -3.0
+    ]
+        
     //MARK: Pick An Image
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        subscribeToKeyboardNotifications()
     }
 
     @IBAction func PickImagePhoto(_ sender: Any) {
@@ -85,7 +69,41 @@ UINavigationControllerDelegate, UITextFieldDelegate {
                 imagePickerView.image = chosenImage
                 dismiss(animated: true, completion: nil)
                 //shareBarButtonItem.isEnabled = true
+            }
+        }
+    
+    // MARK: Clear & Edit Text Fields
+    
+    @IBAction func topTextFieldClears(_ sender: UITextField) {
+        topTextField.text = ""
+    }
+    
+    @IBAction func bottomTextFieldClears(_ sender: UITextField) {
+        bottomTextField.text = ""
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
         }
     }
+        
+        func subscribeToKeyboardNotifications() {
+            NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: .UIResponder.keyboardWillShowNotification, object: nil)
+        }
+        
+        func unsubscribeFromKeyBoardNotifications() {
+            // keyboardWillShow
+            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+            // keyboardWillHide
+            NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        }
+
+        @objc func keyboardWillShow(_ notification: Notification) {
+            view.frame.origin.y = -getKeyboardHeight(notification)
+        }
+        
+        
 }
     
