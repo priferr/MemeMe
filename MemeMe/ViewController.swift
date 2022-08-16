@@ -100,15 +100,27 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     func subscribeToKeyboardNotifications() {
         // keyboardWillShow
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        //keyboardWillHide
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func unsubscribeFromKeyboardNotifications() {
-        // keyboardWillHide
+        // keyboardWillShow
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        //keyboardWillHide
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
         
     @objc func keyboardWillShow(_ notification: Notification) {
-        view.frame.origin.y = -getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y = -getKeyboardHeight(notification)
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification: Notification) {
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y = 0
+        }
     }
    
     func getKeyboardHeight(_ notification: Notification) -> CGFloat {
@@ -116,5 +128,30 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
         return keyboardSize.cgRectValue.height
     }
+    
+    // MARK: Meme object
+    
+    struct Meme {
+        var topText: String
+        var bottomText: String
+        var originalImage: UIImage?
+        var memedImage: UIImage?
+    }
+    
+    func save() {
+        var meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        }
+    
+    func generateMemedImage() -> UIImage {
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return memedImage
+    }
+        
+
+    
     
 }
