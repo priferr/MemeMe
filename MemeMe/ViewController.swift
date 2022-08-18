@@ -15,9 +15,12 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var photoButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
-    
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var toolBar: UIToolbar!
-    @IBOutlet weak var navBar: UINavigationBar!
+    @IBOutlet weak var navBar: UIToolbar!
+    
+    //    @IBOutlet weak var navBar: UINavigationBar!
     
     //MARK: View Setup
     
@@ -87,11 +90,15 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     // MARK: Clear & Edit Text Fields
     
     @IBAction func topTextFieldClears(_ sender: UITextField) {
-        topTextField.text = ""
+        if topTextField.text == "TOP" {
+            topTextField.text = ""
+        }
     }
     
     @IBAction func bottomTextFieldClears(_ sender: UITextField) {
-        bottomTextField.text = ""
+        if bottomTextField.text == "BOTTOM" {
+            bottomTextField.text = ""
+        }
     }
      
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
