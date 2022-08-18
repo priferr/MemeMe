@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S9l-Y6-E1H">
-                                <rect key="frame" x="32" y="317" width="350" height="257"/>
+                                <rect key="frame" x="32" y="323" width="350" height="258"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Vqh-zO-FKa">
                                 <rect key="frame" x="205" y="329" width="4" height="18.5"/>
@@ -28,7 +28,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3Gb-IX-rWU">
-                                <rect key="frame" x="205" y="524" width="4" height="34"/>
+                                <rect key="frame" x="205" y="543.5" width="4" height="18.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                                 <connections>
@@ -63,7 +63,7 @@
                                     </barButtonItem>
                                     <barButtonItem title="Cancel" width="221.5" id="2RJ-dD-aHx" userLabel="cancel">
                                         <connections>
-                                            <action selector="cancelItem:" destination="BYZ-38-t0r" id="x53-9j-qSB"/>
+                                            <action selector="cancelMeme:" destination="BYZ-38-t0r" id="uwP-Ds-szn"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -76,15 +76,14 @@
                         <constraints>
                             <constraint firstItem="9O7-PD-Wq8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="BcA-XV-z4G"/>
                             <constraint firstItem="9O7-PD-Wq8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Dv0-PA-Th6"/>
-                            <constraint firstItem="3Gb-IX-rWU" firstAttribute="top" secondItem="S9l-Y6-E1H" secondAttribute="bottom" constant="-50" id="IMe-57-DOa"/>
                             <constraint firstItem="S9l-Y6-E1H" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="LdJ-1m-atW"/>
-                            <constraint firstItem="Vqh-zO-FKa" firstAttribute="top" secondItem="S9l-Y6-E1H" secondAttribute="top" constant="12" id="Lw1-xX-ZfB"/>
+                            <constraint firstItem="Vqh-zO-FKa" firstAttribute="top" secondItem="S9l-Y6-E1H" secondAttribute="top" constant="6" id="Lw1-xX-ZfB"/>
                             <constraint firstItem="9O7-PD-Wq8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UsF-Nf-UCL"/>
                             <constraint firstItem="3Gb-IX-rWU" firstAttribute="centerX" secondItem="S9l-Y6-E1H" secondAttribute="centerX" id="ZmQ-3A-NN3"/>
-                            <constraint firstItem="S9l-Y6-E1H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="229" id="nMF-SQ-4lu"/>
-                            <constraint firstItem="9O7-PD-Wq8" firstAttribute="top" secondItem="S9l-Y6-E1H" secondAttribute="bottom" constant="190" id="rny-eW-EBZ"/>
+                            <constraint firstItem="S9l-Y6-E1H" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="235" id="nMF-SQ-4lu"/>
+                            <constraint firstItem="9O7-PD-Wq8" firstAttribute="top" secondItem="S9l-Y6-E1H" secondAttribute="bottom" constant="183" id="rny-eW-EBZ"/>
                             <constraint firstItem="Vqh-zO-FKa" firstAttribute="centerX" secondItem="S9l-Y6-E1H" secondAttribute="centerX" id="roO-8W-bDR"/>
-                            <constraint firstItem="3Gb-IX-rWU" firstAttribute="bottom" secondItem="S9l-Y6-E1H" secondAttribute="bottom" constant="-16" id="w3e-VP-BD4"/>
+                            <constraint firstItem="3Gb-IX-rWU" firstAttribute="bottom" secondItem="S9l-Y6-E1H" secondAttribute="bottom" constant="-19" id="w3e-VP-BD4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="S9l-Y6-E1H" secondAttribute="trailing" constant="32" id="ziM-dN-dJ3"/>
                         </constraints>
                     </view>
@@ -97,7 +96,6 @@
                         <outlet property="cancelButton" destination="2RJ-dD-aHx" id="S42-eD-OvM"/>
                         <outlet property="imagePickerView" destination="S9l-Y6-E1H" id="L69-QP-IB2"/>
                         <outlet property="navBar" destination="QvG-Bo-WkK" id="wnd-5D-OE3"/>
-                        <outlet property="photoButton" destination="FC4-af-HKA" id="pe6-te-bF7"/>
                         <outlet property="shareButton" destination="SBg-3u-UOW" id="f3O-NL-ndz"/>
                         <outlet property="toolBar" destination="9O7-PD-Wq8" id="eWY-99-En9"/>
                         <outlet property="topTextField" destination="Vqh-zO-FKa" id="eWG-kn-0tW"/>
