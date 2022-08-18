@@ -12,8 +12,12 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var photoButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    
+    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var navBar: UINavigationBar!
     
     //MARK: View Setup
     
@@ -30,7 +34,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        unsubscribeFromKeyboardNotifications()
+ //       unsubscribeFromKeyboardNotifications()
     }
     
     //MARK: Text Field Properties
@@ -129,29 +133,32 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         return keyboardSize.cgRectValue.height
     }
     
-    // MARK: Meme object
-    
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var originalImage: UIImage?
-        var memedImage: UIImage?
-    }
-    
     func save() {
-        var meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        let memedImage = generateMemedImage()
+        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage )
         }
     
+    func hideBars(isHidden: Bool) {
+        toolBar.isHidden = isHidden
+        navBar.isHidden = isHidden
+    }
+    
     func generateMemedImage() -> UIImage {
+
+        // Hide toolbar and navbar
+        hideBars(isHidden: true)
+
+        // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
 
+        // Show toolbar and navbar
+        hideBars(isHidden: false)
+
         return memedImage
     }
-        
-
     
     
 }

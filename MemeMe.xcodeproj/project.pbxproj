@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A93291E128AD83F600B3DDCD /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93291E028AD83F600B3DDCD /* Meme.swift */; };
 		A986B4AB289D8D6000E290AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A986B4AA289D8D6000E290AB /* AppDelegate.swift */; };
 		A986B4AD289D8D6000E290AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A986B4AC289D8D6000E290AB /* SceneDelegate.swift */; };
 		A986B4AF289D8D6000E290AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A986B4AE289D8D6000E290AB /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A93291E028AD83F600B3DDCD /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		A986B4A7289D8D6000E290AB /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A986B4AA289D8D6000E290AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A986B4AC289D8D6000E290AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				A986B4AA289D8D6000E290AB /* AppDelegate.swift */,
 				A986B4AC289D8D6000E290AB /* SceneDelegate.swift */,
+				A93291E028AD83F600B3DDCD /* Meme.swift */,
 				A986B4AE289D8D6000E290AB /* ViewController.swift */,
 				A986B4B0289D8D6000E290AB /* Main.storyboard */,
 				A986B4B3289D8D6500E290AB /* Assets.xcassets */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A986B4AF289D8D6000E290AB /* ViewController.swift in Sources */,
+				A93291E128AD83F600B3DDCD /* Meme.swift in Sources */,
 				A986B4AB289D8D6000E290AB /* AppDelegate.swift in Sources */,
 				A986B4AD289D8D6000E290AB /* SceneDelegate.swift in Sources */,
 			);
