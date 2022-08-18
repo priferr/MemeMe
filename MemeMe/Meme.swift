@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 
-// MARK: Meme object
-
 struct Meme {
     var topText = String()
     var bottomText = String()

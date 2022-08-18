@@ -11,7 +11,7 @@
         <!--MemeEditorViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="MemeEditorViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="MemeEditorViewController" id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -56,8 +56,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <items>
-                                    <barButtonItem title="Share" image="square.and.arrow.up.fill" catalog="system" width="208.5" id="SBg-3u-UOW" userLabel="share"/>
-                                    <barButtonItem title="Cancel" width="221.5" id="2RJ-dD-aHx" userLabel="cancel"/>
+                                    <barButtonItem title="Share" image="square.and.arrow.up.fill" catalog="system" width="208.5" id="SBg-3u-UOW" userLabel="share">
+                                        <connections>
+                                            <action selector="shareMeme:" destination="BYZ-38-t0r" id="fkU-LM-ot7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Cancel" width="221.5" id="2RJ-dD-aHx" userLabel="cancel">
+                                        <connections>
+                                            <action selector="cancelItem:" destination="BYZ-38-t0r" id="x53-9j-qSB"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <toolbarAppearance key="standardAppearance">
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
