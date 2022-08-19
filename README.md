@@ -1,4 +1,4 @@
-# MemeMe
+## MemeMe
 * App for iOS Udacity course
 
 # Tech Used
