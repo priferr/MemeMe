@@ -163,7 +163,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     }
     
     func save(memedImage: UIImage) {
-        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage )
+        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
         }
     
     @IBAction func shareMeme(_ sender: Any) {
