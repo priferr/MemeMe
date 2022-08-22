@@ -10,17 +10,16 @@ import UIKit
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate, UITextFieldDelegate {
     
+    // MARK: Outlets
+    
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var photoButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var navBar: UIToolbar!
-    
-    //    @IBOutlet weak var navBar: UINavigationBar!
     
     //MARK: View Setup
     
@@ -37,7 +36,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
- //       unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     //MARK: Text Field Properties
@@ -164,7 +163,7 @@ UINavigationControllerDelegate, UITextFieldDelegate {
     }
     
     func save(memedImage: UIImage) {
-        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage )
+        _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
         }
     
     @IBAction func shareMeme(_ sender: Any) {
@@ -179,10 +178,9 @@ UINavigationControllerDelegate, UITextFieldDelegate {
         present(activityController, animated: true, completion: nil)
     }
     
-    @IBAction func cancelItem(_ sender: Any) {
+    @IBAction func cancelMeme(_ sender: Any) {
         shareButton.isEnabled = false
         imagePickerView.image = nil
         textFieldProperty()
     }
-    
 }
