@@ -1,4 +1,4 @@
-# MemeMe1.0
+## MemeMe1.0
 * App for iOS Udacity course
 
 ## Tech Used
